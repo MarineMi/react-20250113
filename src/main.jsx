@@ -5,21 +5,21 @@ const rootElement = document.getElementById("root");
 const reactRoot = createRoot(rootElement);
 
 reactRoot.render(
-  restaurants.map((rest, i) => (
-    <div key={i} className="restaurants-list">
-      <h2 style={{ color: "red" }}>{rest.name}</h2>
+  restaurants.map((restaurant) => (
+    <div key={restaurant.id} className="restaurants-list">
+      <h2 style={{ color: "red" }}>{restaurant.name}</h2>
 
       <h3 className="menu-list">Меню</h3>
       <ul>
-        {rest.menu.map((dish, i) => (
-          <li key={i}>{dish.name}</li>
+        {restaurant.menu.map((dish) => (
+          <li key={dish.id}>{dish.name}</li>
         ))}
       </ul>
 
       <h3 className="reviews-list">Отзывы</h3>
       <ul>
-        {rest.reviews.map((review, i) => (
-          <li key={i}>{review.text}</li>
+        {restaurant.reviews.map((review) => (
+          <li key={review.id}>{review.text}</li>
         ))}
       </ul>
     </div>
