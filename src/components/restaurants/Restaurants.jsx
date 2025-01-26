@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { restaurants } from "../constants/mock.js";
 import Restaurant from "../restaurant/Restaurant.jsx";
+import RestaurantTab from "../restaurantTab/RestaurantTab.jsx";
 
 function Restaurants() {
   const [activeRestaurant, setActiveRestaurant] = useState(restaurants[0]);
@@ -10,20 +11,16 @@ function Restaurants() {
       <h1>Restaurants</h1>
 
       {restaurants.map((restaurant) => (
-        <button
+        <RestaurantTab
           key={restaurant.id}
-          onClick={() => {
-            console.log(restaurant.id);
-            setActiveRestaurant(
-              ...restaurants.filter((r) => r.id == restaurant.id)
-            );
-          }}
-        >
-          {restaurant.name}
-        </button>
+          restaurant={restaurant}
+          setActiveRestaurant={setActiveRestaurant}
+        />
       ))}
 
-      <Restaurant key={activeRestaurant.id} restaurant={activeRestaurant} />
+      {activeRestaurant && (
+        <Restaurant key={activeRestaurant.id} restaurant={activeRestaurant} />
+      )}
     </>
   );
 }
