@@ -1,28 +1,28 @@
 import { useState } from "react";
 
-export const useCount = () => {
-  const [count, setCount] = useState({ value: 0 });
+export const useCount = ({ min, max }) => {
+  const [count, setCount] = useState({ value: min });
 
   const onDecrement = () => {
     setCount((prevState) => {
-      if (prevState.value > 0) {
+      if (prevState.value > min) {
         return {
           ...prevState,
           value: prevState.value - 1,
         };
       }
-      return { value: 0 };
+      return { value: min };
     });
   };
 
   const onIncrement = () => {
     setCount((prevState) => {
-      if (prevState.value < 5) {
+      if (prevState.value < max) {
         return {
           value: prevState.value + 1,
         };
       }
-      return { value: 5 };
+      return { value: max };
     });
   };
 

@@ -1,4 +1,6 @@
-function Review({ reviews }) {
+import ReviewForm from "../reviewForm/ReviewForm";
+
+function Reviews({ reviews }) {
   if (!reviews.length) {
     return <div>Нет отзывов</div>;
   }
@@ -11,8 +13,10 @@ function Review({ reviews }) {
           <li key={reviewItem.id}>{reviewItem.text}</li>
         ))}
       </ul>
+
+      <ReviewForm />
     </div>
   );
 }
 
-export default Review;
+export default Reviews;

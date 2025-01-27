@@ -1,4 +1,4 @@
-import Counter from "../counter/Counter";
+import DishCounter from "./DishCounter";
 
 function Menu({ menu }) {
   if (!menu.length) {
@@ -12,7 +12,7 @@ function Menu({ menu }) {
         {menu.map((menuItem) => (
           <li key={menuItem.id}>
             {menuItem.name}
-            <Counter />
+            <DishCounter />
           </li>
         ))}
       </ul>
